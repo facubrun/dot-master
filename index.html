@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dot Master Game</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/styles.css">
+
 </head>
 <body>
     <!-- cabecera -->
@@ -19,7 +22,12 @@
         <form action="" method="post">
             <div class="item-form">
                 <label for="username">Nombre de usuario:</label>
+                <input type="text" id="arroba" value="@" name="arroba" readonly>
                 <input type="text" id="username" name="username" required>
+            </div>
+            <div class="item-form">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
             </div>
             <div class="item-form">
                 <label for="board-size">Tamaño del tablero:</label>
@@ -31,7 +39,7 @@
                 </select>
             </div>
             <div class="item-form">
-                <button type="submit">Iniciar juego</button>
+                <input type="submit" value="Iniciar juego">
             </div>
         </form>
     </main>
