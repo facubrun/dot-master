@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot Master Game</title>
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- cabecera -->
+    <header>
+        <img src="./img/logo.png" alt="Dot Master Logo">
+    </header>
+
+    <!-- contenido principal -->
+    <main>
+        <form action="" method="post">
+            <div class="item-form">
+                <label for="username">Nombre de usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="item-form">
+                <label for="board-size">Tamaño del tablero:</label>
+                <select name="board-size" id="board-size" required>
+                    <option value="">-- Elije un tamaño --</option>
+                    <option value="1">4 x 4</option>
+                    <option value="2">6 x 6</option>
+                    <option value="3">8 x 8</option>
+                </select>
+            </div>
+            <div class="item-form">
+                <button type="submit">Iniciar juego</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- pie de página -->
+    <footer>
+        <p>2026 Dot Master</p>
+    </footer>
+</body>
+</html>
