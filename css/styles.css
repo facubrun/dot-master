@@ -1,5 +1,5 @@
 body {
-    background-color: #BAFAFD;
+    background-color: #BAEEFD;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
@@ -42,7 +42,7 @@ input {
 }
 
 input[type="submit"] {
-    background-color: #06989D;
+    background-color: #17C5F7;
     color: #fff;
     font-weight: 400;
     width: 90%;
@@ -50,11 +50,12 @@ input[type="submit"] {
 }
 
 select {
+    float: left;
     font-family: 'Poppins', sans-serif;
     border: 1px solid #ced4da;
     border-radius: 5px;
     font-size: 18px;
-    width: 100%;
+    width: 95%;
 }
 
 button {
