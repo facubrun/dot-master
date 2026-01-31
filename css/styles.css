@@ -45,7 +45,6 @@ input[type="submit"] {
     background-color: #17C5F7;
     color: #fff;
     font-weight: 400;
-    width: 90%;
     border-radius: 5px;
 }
 
@@ -93,4 +92,12 @@ footer {
     float: left;
     border-radius: 5px;
     width: 90%;
+}
+
+#error-message {
+    color: red;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }

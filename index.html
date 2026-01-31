@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js" defer></script>
 </head>
 <body>
     <!-- cabecera -->
@@ -17,29 +17,30 @@
         <img src="./img/logo.png" alt="Dot Master Logo">
     </header>
 
-    <!-- contenido principal -->
+    <!-- formulario user -->
     <main>
-        <form action="" method="post">
+        <p id="error-message"></p>
+        <form action="juego.html" id="game-form">
             <div class="item-form">
                 <label for="username">Nombre de usuario:</label>
                 <input type="text" id="arroba" value="@" name="arroba" readonly>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username">
             </div>
             <div class="item-form">
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
+                <input type="text" id="email" name="email">
             </div>
             <div class="item-form">
                 <label for="board-size">Tamaño del tablero:</label>
-                <select name="board-size" id="board-size" required>
-                    <option value="">-- Elije un tamaño --</option>
+                <select name="board-size" id="board-size">
+                    <option value="0">-- Elije un tamaño --</option>
                     <option value="1">4 x 4</option>
                     <option value="2">6 x 6</option>
                     <option value="3">8 x 8</option>
                 </select>
             </div>
             <div class="item-form">
-                <input type="submit" value="INICIAR JUEGO">
+                <input type="submit" value="INICIAR JUEGO" id="start-button">
             </div>
         </form>
     </main>
