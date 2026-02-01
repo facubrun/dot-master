@@ -2,4 +2,8 @@
  * js para el juego
  */
 
-mostrarDatosUsuario();
+getDatosUsuario();
+
+if (!comprobarDatosSesion()) {
+    location = 'index.html';
+}

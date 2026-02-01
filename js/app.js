@@ -10,6 +10,13 @@ const inputName = document.getElementById('username');
 const inputTamano = document.getElementById('board-size');
 const mensajeError = document.getElementById('error-message');
 
+// Comprobar si hay mensaje de error en sesión
+const errorSesion = sessionStorage.getItem('error');
+if (errorSesion != null) {
+    mensajeError.innerText = errorSesion;
+    sessionStorage.removeItem('error');
+}
+
 // Funciones de evento
 function comprobarForm(event) {
     // Comprobar cambios
