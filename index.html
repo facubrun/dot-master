@@ -22,22 +22,25 @@
         <p id="error-message"></p>
         <form action="juego.html" id="game-form">
             <div class="item-form">
-                <label for="username">Nombre de usuario:</label>
+                <label for="username">Nombre de usuario*:</label>
                 <input type="text" id="arroba" value="@" name="arroba" readonly>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" required minlength="2">
             </div>
             <div class="item-form">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email">
             </div>
             <div class="item-form">
-                <label for="board-size">Tamaño del tablero:</label>
-                <select name="board-size" id="board-size">
+                <label for="board-size">Tamaño del tablero*:</label>
+                <select name="board-size" id="board-size" >
                     <option value="0">-- Elije un tamaño --</option>
                     <option value="1">4 x 4</option>
                     <option value="2">6 x 6</option>
                     <option value="3">8 x 8</option>
                 </select>
+            </div>
+            <div class="item-form">
+                <p>* Obligatorio</p>
             </div>
             <div class="item-form">
                 <input type="submit" value="INICIAR JUEGO" id="start-button">
