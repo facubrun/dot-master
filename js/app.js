@@ -8,6 +8,7 @@ const formEntrada = document.getElementById('game-form');
 const botonJugar = document.getElementById('start-button');
 const inputName = document.getElementById('username');
 const inputTamano = document.getElementById('board-size');
+const inputEmail = document.getElementById('email');
 const mensajeError = document.getElementById('error-message');
 
 // Comprobar si hay mensaje de error en sesión
@@ -32,9 +33,12 @@ function comprobarForm(event) {
         return false;
     }
     // Si todo es correcto, guardar datos y enviar formulario
-    datosUsuario(inputName, inputTamano.value);
+    datosUsuario(inputName, inputEmail, inputTamano);
+    historicoUsuarios(inputName);
     return true;
 }
 
 // Inicio de carga de eventos
 formEntrada.addEventListener('submit', comprobarForm);
+// Geolocalización
+datoGeolocalizacion();
