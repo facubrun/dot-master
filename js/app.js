@@ -10,6 +10,9 @@ var inputName;
 var inputTamano;
 var inputEmail;
 var mensajeError;
+var avatarItems;
+var itemImg;
+var avatarContainer;
 
 // Comprobar si hay mensaje de error en sesión
 const errorSesion = sessionStorage.getItem('error');
@@ -38,6 +41,14 @@ function comprobarForm(event) {
     return true;
 }
 
+function moviendoImg(event) {
+    itemImg = event.target;
+}
+
+function cambiarImg() {
+    avatarContainer.src = itemImg.src;
+}
+
 // Carga de objetos del DOM y eventos del formulario
 function domCargado() {
     // Captura de todos los elements del DOM
@@ -55,6 +66,17 @@ function domCargado() {
     }
 
     formEntrada.addEventListener('submit', comprobarForm);
+
+    // eventos del drag-n-drop
+    const avatarItems = document.getElementsByClassName('avatarImgItem'); // misma clase para agarrar todos
+    for (let item of avatarItems) {
+        item.addEventListener('dragstart', moviendoImg);
+
+    }
+
+    avatarContainer = document.getElementById('avatarImg');
+    avatarContainer.addEventListener('dragover', e => {e.preventDefault()});
+    avatarContainer.addEventListener('drop', cambiarImg);
 }
 
 // Inicio de carga de eventos
