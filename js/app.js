@@ -4,12 +4,12 @@
 
 
 // Inicializacion de variables y elementos del DOM
-const formEntrada = document.getElementById('game-form');
-const botonJugar = document.getElementById('start-button');
-const inputName = document.getElementById('username');
-const inputTamano = document.getElementById('board-size');
-const inputEmail = document.getElementById('email');
-const mensajeError = document.getElementById('error-message');
+var formEntrada;
+var botonJugar;
+var inputName;
+var inputTamano;
+var inputEmail;
+var mensajeError;
 
 // Comprobar si hay mensaje de error en sesión
 const errorSesion = sessionStorage.getItem('error');
@@ -38,7 +38,26 @@ function comprobarForm(event) {
     return true;
 }
 
+// Carga de objetos del DOM y eventos del formulario
+function domCargado() {
+    // Captura de todos los elements del DOM
+    formEntrada = document.getElementById('game-form');
+    botonJugar = document.getElementById('start-button');
+    inputName = document.getElementById('username');
+    inputTamano = document.getElementById('board-size');
+    inputEmail = document.getElementById('email');
+    mensajeError = document.getElementById('error-message');
+
+    // Comprobar si hay error en juego.html
+    if(sessionStorage.getItem('error') != null) {
+        mensajeError.innerText = sessionStorage.getItem('error');
+        sessionStorage.removeItem('error');
+    }
+
+    formEntrada.addEventListener('submit', comprobarForm);
+}
+
 // Inicio de carga de eventos
-formEntrada.addEventListener('submit', comprobarForm);
+document.addEventListener('DOMContentLoaded', domCargado);
 // Geolocalización
 datoGeolocalizacion();
