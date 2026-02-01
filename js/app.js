@@ -13,15 +13,15 @@ const mensajeError = document.getElementById('error-message');
 // Funciones de evento
 function comprobarForm(event) {
     // Comprobar cambios
-    if (inputName.value.length === 0) {
-        mensajeError.innerText = 'Debe ingresar un nombre de usuario.';
-        inputName.focus();
+    if (inputName.value.match(/^\d/)) {
         event.preventDefault();
+        mensajeError.innerText = 'El nombre de usuario no debe comenzar con números.';
+        inputName.focus();
         return false;
     } else if (inputTamano.value === '0') {
+        event.preventDefault();
         mensajeError.innerText = 'Debe seleccionar un tamaño de tablero.';
         inputTamano.focus();
-        event.preventDefault();
         return false;
     }
     return true;
