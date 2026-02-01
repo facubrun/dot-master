@@ -24,6 +24,8 @@ function comprobarForm(event) {
         inputTamano.focus();
         return false;
     }
+    // Si todo es correcto, guardar datos y enviar formulario
+    datosUsuario(inputName, inputTamano.value);
     return true;
 }
 
