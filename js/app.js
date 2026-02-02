@@ -14,13 +14,6 @@ var avatarItems;
 var itemImg;
 var avatarContainer;
 
-// Comprobar si hay mensaje de error en sesión
-const errorSesion = sessionStorage.getItem('error');
-if (errorSesion != null) {
-    mensajeError.innerText = errorSesion;
-    sessionStorage.removeItem('error');
-}
-
 // Funciones de evento
 function comprobarForm(event) {
     // Comprobar cambios
@@ -36,7 +29,7 @@ function comprobarForm(event) {
         return false;
     }
     // Si todo es correcto, guardar datos y enviar formulario
-    datosUsuario(inputName, inputEmail, inputTamano);
+    datosUsuario(inputName, inputEmail, inputTamano, avatarContainer);
     historicoUsuarios(inputName);
     return true;
 }

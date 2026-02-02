@@ -9,6 +9,7 @@ var nombreUsuario;
 var emailUsuario;
 var tamanoTablero;
 var geolocalizacionTxt;
+var avatarUsuario;
 
 // sessionStorage
 /**
@@ -17,12 +18,15 @@ var geolocalizacionTxt;
  * @param {HTMLElement} nombreUsuario
  * @param {HTMLElement} emailUsuario
  * @param {HTMLElement} tamanoTablero
- */
-function datosUsuario(nombreUsuario, emailUsuario, tamanoTablero) {
+ * @param {HTMLElement} avatarUsuario
+ * 
+ * */
+function datosUsuario(nombreUsuario, emailUsuario, tamanoTablero, avatarUsuario) {
     sessionStorage.setItem('username', nombreUsuario.value);
     sessionStorage.setItem('email', emailUsuario.value);
     sessionStorage.setItem('tamanoTablero', tamanoTablero.value);
     sessionStorage.setItem('geolocalizacion', geolocalizacionTxt);
+    sessionStorage.setItem('avatar', avatarUsuario.src);
 }
 
 /**
@@ -32,11 +36,13 @@ function datosUsuario(nombreUsuario, emailUsuario, tamanoTablero) {
  */
 function getDatosUsuario() {
     nombreUsuario = sessionStorage.getItem('username');
+
     emailUsuario = sessionStorage.getItem('email');
     tamanoTablero = sessionStorage.getItem('tamanoTablero');
     geolocalizacionTxt = sessionStorage.getItem('geolocalizacion');
+    avatarUsuario = sessionStorage.getItem('avatar');
 
-    return { nombreUsuario, emailUsuario, tamanoTablero, geolocalizacionTxt };
+    return { nombreUsuario, emailUsuario, tamanoTablero, geolocalizacionTxt, avatarUsuario };
 }
 
 /**
