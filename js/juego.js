@@ -7,6 +7,7 @@ var inicioMarca = false;
 var adyacentes = [];
 var colorMarca;
 var idMarcados = [];
+var idIntervalo;
 
 /**
  * Devuelve un numero random entre 0 y max
@@ -68,6 +69,24 @@ function calcAdyacentes(index) {
     return adyacentes;
 }
 
+/**
+ * Cuenta atrás del tiempo de juego
+ */
+function cuentaAtras() {
+    const tiempoInput = document.getElementById('tiempo');
+    tiempoInput.value = parseInt(tiempoInput.value) - 1;
+    if (parseInt(tiempoInput.value) == 0) {
+        clearInterval(idIntervalo);
+        // Finalizar todos los eventos
+        let items = document.getElementsByClassName('item');
+        for (let item of items) {
+            item.removeEventListener('mousedown', comenzarMarca);
+            item.removeEventListener('mouseover', continuarMarca);
+        }
+        document.removeEventListener('mouseup', finalizarMarca);
+    }
+}
+
 function eventosJuego() {
     let items = document.getElementsByClassName('item');
     for (let item of items) {
@@ -75,6 +94,9 @@ function eventosJuego() {
         item.addEventListener('mouseover', continuarMarca);
     }
     document.addEventListener('mouseup', finalizarMarca);
+
+    // Cuenta atras
+    idIntervalo = setInterval(cuentaAtras, 1000); // ejecuta cada segundo
 }
 
 /** FUNCIONES DEL JUEGO */
