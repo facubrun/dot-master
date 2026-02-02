@@ -137,6 +137,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #262338;
     border: 1px solid #ced4da;
     border-radius: 5px 5px 0px 0px;
     width: 500px;

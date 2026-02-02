@@ -74,8 +74,16 @@ function calcAdyacentes(index) {
  */
 function cuentaAtras() {
     const tiempoInput = document.getElementById('tiempo');
-    tiempoInput.value = parseInt(tiempoInput.value) - 1;
-    if (parseInt(tiempoInput.value) == 0) {
+    let tiempoActual = parseInt(tiempoInput.value);
+    
+    if (tiempoActual <= 0) {
+        clearInterval(idIntervalo);
+        return;
+    }
+    
+    tiempoInput.value = tiempoActual - 1;
+    
+    if (tiempoActual - 1 <= 0) {
         clearInterval(idIntervalo);
         // Finalizar todos los eventos
         let items = document.getElementsByClassName('item');
@@ -84,7 +92,20 @@ function cuentaAtras() {
             item.removeEventListener('mouseover', continuarMarca);
         }
         document.removeEventListener('mouseup', finalizarMarca);
+    
+        // Cambiar z-index del panel de juego acabado
+        document.getElementById('juegoAcabado').style.zIndex = 3;
+
+        document.getElementById('nuevaPartida').addEventListener('click', function() {
+            location.reload();
+        });
     }
+}
+
+function inicializarJuego() {
+    // Reiniciar valores del juego
+    document.getElementById('tiempo').value = 10;
+    document.getElementById('puntuacion').value = 0;
 }
 
 function eventosJuego() {
@@ -179,5 +200,6 @@ if (!comprobarDatosSesion()) {
 // Rellenamos el formulario con los datos del usuario, 
 // pintamos el panel de juego y cargamos los eventos
 rellenarFormUsuario();
+inicializarJuego();
 pintarPanelJuego();
 eventosJuego();
