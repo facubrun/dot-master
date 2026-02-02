@@ -6,6 +6,7 @@
 var inicioMarca = false;
 var adyacentes = [];
 var colorMarca;
+var idMarcados = [];
 
 /**
  * Devuelve un numero random entre 0 y max
@@ -91,6 +92,9 @@ function comenzarMarca(event) {
     if (item.classList.contains('rojo')) containerItem.classList.add('rojo');
     else  containerItem.classList.add('verde');   
 
+    // Guardar id marcado
+    idMarcados.push(parseInt(item.id));
+
     // Calcular adyacentes
     calcAdyacentes(parseInt(item.id));
     colorMarca = item.classList[1];
@@ -109,6 +113,10 @@ function continuarMarca(event) {
         let containerItem = event.target.parentElement;
         if (item.classList.contains('rojo')) containerItem.classList.add('rojo');
         else  containerItem.classList.add('verde');
+        
+        // Guardar id marcado
+        idMarcados.push(idNuevo);
+        
         calcAdyacentes(idNuevo);
     }
 }
@@ -116,6 +124,25 @@ function continuarMarca(event) {
 /** Finalizar el marcado de items */
 function finalizarMarca() {
     inicioMarca = false;
+    adyacentes = [];
+    // Actualizar puntuación
+    const puntuacionInput = document.getElementById('puntuacion');
+    if (idMarcados.length > 1) {
+        puntuacionInput.value = parseInt(puntuacionInput.value) + idMarcados.length;
+    }
+    // Trabajo con los ids marcados
+    for (let id = 0; id < idMarcados.length; id++) {
+        let itemMarcado = document.getElementById(idMarcados[id]);
+        itemMarcado.parentElement.classList.remove(colorMarca);
+
+        // Cambiar color de item marcado de forma aleatoria
+        let color = ['rojo', 'verde'];
+        let colorRnd = getRandomInt(2);
+        itemMarcado.classList.remove(colorMarca);
+        itemMarcado.classList.add(color[colorRnd]);
+    }
+
+    idMarcados = [];
 }
 
 
