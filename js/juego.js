@@ -35,12 +35,39 @@ function pintarPanelJuego() {
     document.getElementById('juego').innerHTML = items;
 }
 
+function eventosJuego() {
+    let items = document.getElementsByClassName('item');
+    for (let item of items) {
+        item.addEventListener('mousedown', comenzarMarca);
+    }
+}
+
+/** FUNCIONES DEL JUEGO */
+
+/**
+ * Iniciar el marcado de un item
+ * 
+ * @param {*} event 
+ */
+function comenzarMarca(event) {
+    let item = event.target;
+    let containerItem = event.target.parentElement;
+    if (item.classList.contains('rojo')) containerItem.classList.add('rojo');
+    else  containerItem.classList.add('verde');
+    
+
+}
+
+
+
 // Cargar datos de usuario
 getDatosUsuario();
 // Comprobar si hay datos de sesión
 if (!comprobarDatosSesion()) {
     location = 'index.html';
 }
-// Rellenamos el formulario con los datos del usuario
+// Rellenamos el formulario con los datos del usuario, 
+// pintamos el panel de juego y cargamos los eventos
 rellenarFormUsuario();
 pintarPanelJuego();
+eventosJuego();
