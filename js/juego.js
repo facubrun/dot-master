@@ -2,6 +2,8 @@
  * js para el juego
  */
 
+/** VARIABLES GLOBALES */
+var inicioMarca = false;
 
 /**
  * Devuelve un numero random entre 0 y max
@@ -39,7 +41,9 @@ function eventosJuego() {
     let items = document.getElementsByClassName('item');
     for (let item of items) {
         item.addEventListener('mousedown', comenzarMarca);
+        item.addEventListener('mouseover', continuarMarca);
     }
+    document.addEventListener('mouseup', finalizarMarca);
 }
 
 /** FUNCIONES DEL JUEGO */
@@ -50,15 +54,33 @@ function eventosJuego() {
  * @param {*} event 
  */
 function comenzarMarca(event) {
+    if (!inicioMarca) inicioMarca = true;
+
+    let item = event.target;
+    let containerItem = event.target.parentElement;
+    if (item.classList.contains('rojo')) containerItem.classList.add('rojo');
+    else  containerItem.classList.add('verde');   
+}
+
+/** Continuar el marcado de items
+ * 
+ * @param {*} event 
+ */
+function continuarMarca(event) {
+    if (!inicioMarca) return;
     let item = event.target;
     let containerItem = event.target.parentElement;
     if (item.classList.contains('rojo')) containerItem.classList.add('rojo');
     else  containerItem.classList.add('verde');
-    
+}
 
+/** Finalizar el marcado de items */
+function finalizarMarca() {
+    inicioMarca = false;
 }
 
 
+/* MAIN */
 
 // Cargar datos de usuario
 getDatosUsuario();
