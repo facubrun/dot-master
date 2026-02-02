@@ -1,6 +1,6 @@
 /*Elementos generales*/
 body {
-    background-color: #f5f5f5;
+    background-color: #BAEEFD;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -125,6 +125,10 @@ img {
     border-radius: 5px 5px 0px 0px;
 }
 
+#avatarImg {
+    background-color: #fff;
+}
+
 .juegoAcabadoColor {
     background-color: #263238;
     transition: background-color 0.4s;
@@ -137,7 +141,6 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #262338;
     border: 1px solid #ced4da;
     border-radius: 5px 5px 0px 0px;
     width: 500px;

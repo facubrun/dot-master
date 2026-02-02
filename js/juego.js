@@ -94,6 +94,7 @@ function cuentaAtras() {
         document.removeEventListener('mouseup', finalizarMarca);
     
         // Cambiar z-index del panel de juego acabado
+        document.getElementById('juegoAcabado').classList.add('juegoAcabadoColor')
         document.getElementById('juegoAcabado').style.zIndex = 3;
 
         document.getElementById('nuevaPartida').addEventListener('click', function() {
